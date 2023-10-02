@@ -4,7 +4,7 @@ import { useState } from "react";
 import { addTask } from "../store/slices/taskSlice";
 import TaskItem from "./taskItem";
 
-export const TaksList = () => {
+export const TasksList = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state: RootState) => state.task.tasks);
   const [newTask, setNewTask] = useState("");

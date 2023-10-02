@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../store/slices/authSlice";
+import { initializeTasks } from "../store/slices/taskSlice";
 
 const AuthProvider = ({ children }) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
-    // Retrieve the token object from sessionStorage
     const storedTokenObject = sessionStorage.getItem("token");
 
     if (storedTokenObject) {
@@ -13,11 +14,14 @@ const AuthProvider = ({ children }) => {
       const currentTime = new Date().getTime();
 
       if (currentTime < expirationTime) {
-        // Token is still valid
         dispatch(login(token));
+        const storedTasks = sessionStorage.getItem("tasks");
+        if (storedTasks) {
+          dispatch(initializeTasks(JSON.parse(storedTasks)));
+        }
       } else {
-        // Token is expired
         sessionStorage.removeItem("token");
+        sessionStorage.removeItem("tasks");
         dispatch(logout());
       }
     }
