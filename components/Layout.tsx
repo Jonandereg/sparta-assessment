@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/slices/authSlice";
+import { RootState } from "../store";
 
 type Props = {
   children?: ReactNode;
@@ -8,6 +11,15 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title" }: Props) => {
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated,
+  );
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    dispatch(logout());
+  };
   return (
     <div>
       <Head>
@@ -18,6 +30,11 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
       <header>
         <nav>
           <Link href="/">Home</Link>
+          {isAuthenticated ? (
+            <button onClick={handleLogout}>Logout</button>
+          ) : (
+            <Link href="/login">Login</Link>
+          )}
         </nav>
       </header>
       {children}
