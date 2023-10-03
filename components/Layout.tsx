@@ -38,7 +38,11 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
             {isAuthenticated ? (
               <LogoutContainer>
                 <Typography variant="h6">Logged in</Typography>
-                <CustomButton className="secondary" onClick={handleLogout}>
+                <CustomButton
+                  data-testid="logOut"
+                  className="secondary"
+                  onClick={handleLogout}
+                >
                   Logout
                 </CustomButton>
               </LogoutContainer>

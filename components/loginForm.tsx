@@ -26,6 +26,7 @@ export const LoginForm = () => {
         <InputContainer>
           <label>Username</label>
           <TextField
+            data-testid="username"
             variant="outlined"
             value={username}
             size="small"
@@ -36,6 +37,7 @@ export const LoginForm = () => {
         <InputContainer>
           <label>Password</label>
           <TextField
+            data-testid="password"
             type="password"
             value={password}
             variant="outlined"
