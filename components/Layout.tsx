@@ -4,6 +4,8 @@ import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { RootState } from "../store";
+import { Box, styled } from "@mui/material";
+import { SecondaryButton } from "./buttons";
 
 type Props = {
   children?: ReactNode;
@@ -29,12 +31,15 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
       </Head>
       <header>
         <nav>
-          <Link href="/">Home</Link>
-          {isAuthenticated ? (
-            <button onClick={handleLogout}>Logout</button>
-          ) : (
-            <Link href="/login">Login</Link>
-          )}
+          <NavMenu>
+            {isAuthenticated ? (
+              <SecondaryButton onClick={handleLogout}>Logout</SecondaryButton>
+            ) : (
+              <SecondaryButton>
+                <StyledLink href="/login">Login</StyledLink>
+              </SecondaryButton>
+            )}
+          </NavMenu>
         </nav>
       </header>
       {children}
@@ -47,3 +52,19 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
 };
 
 export default Layout;
+
+const NavMenu = styled(Box)`
+  display: flex;
+  grid-gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: white;
+  }
+`;
