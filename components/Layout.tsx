@@ -4,8 +4,8 @@ import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/slices/authSlice";
 import { RootState } from "../store";
-import { Box, styled } from "@mui/material";
-import { SecondaryButton } from "./buttons";
+import { Box, Typography, styled } from "@mui/material";
+import { CustomButton } from "./buttons";
 
 type Props = {
   children?: ReactNode;
@@ -32,20 +32,40 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
       <header>
         <nav>
           <NavMenu>
+            <Typography variant="h6" style={{ flexGrow: 1 }}>
+              Sparta Task Manager
+            </Typography>
             {isAuthenticated ? (
-              <SecondaryButton onClick={handleLogout}>Logout</SecondaryButton>
+              <LogoutContainer>
+                <Typography variant="h6">Logged in</Typography>
+                <CustomButton className="secondary" onClick={handleLogout}>
+                  Logout
+                </CustomButton>
+              </LogoutContainer>
             ) : (
-              <SecondaryButton>
+              <CustomButton className="secondary">
                 <StyledLink href="/login">Login</StyledLink>
-              </SecondaryButton>
+              </CustomButton>
             )}
           </NavMenu>
         </nav>
       </header>
       {children}
       <footer>
-        <hr />
-        <span>I'm here to stay (Footer)</span>
+        <FooterContainer>
+          <Typography variant="body1">Sparta assessment</Typography>
+          <Typography variant="body1">
+            Built with: Next.js, TypeScript, Redux, Material-UI
+          </Typography>
+          <Typography variant="body1">Version: 1.0.0</Typography>
+          <Typography variant="body1">
+            Future Enhancements: Real-time sync, Mobile Responsiveness,Improved
+            accessibility
+          </Typography>
+          <Typography variant="body1">
+            © 2023 Leonidas. All rights reserved.
+          </Typography>
+        </FooterContainer>
       </footer>
     </div>
   );
@@ -59,6 +79,14 @@ const NavMenu = styled(Box)`
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #ccc;
+  background-color: black;
+  color: white;
+`;
+
+const LogoutContainer = styled(Box)`
+  display: flex;
+  grid-gap: 1rem;
+  align-items: center;
 `;
 
 const StyledLink = styled(Link)`
@@ -67,4 +95,14 @@ const StyledLink = styled(Link)`
   &:hover {
     color: white;
   }
+`;
+const FooterContainer = styled(Box)`
+  margin-top: 10rem;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  align-items: center;
 `;

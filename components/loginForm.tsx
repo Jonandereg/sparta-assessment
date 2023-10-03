@@ -3,8 +3,8 @@ import { fakeLogin } from "../utils/fakeAuth";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
-import { Box, TextField, styled } from "@mui/material";
-import { PrimaryButton } from "./buttons";
+import { Box, TextField, Typography, styled } from "@mui/material";
+import { CustomButton } from "./buttons";
 
 export const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -22,6 +22,7 @@ export const LoginForm = () => {
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <FormInnerContainer>
+        <Typography variant="h6">Log in to your Sparta account </Typography>
         <InputContainer>
           <label>Username</label>
           <TextField
@@ -44,9 +45,9 @@ export const LoginForm = () => {
           />
         </InputContainer>
         <ButtonContainer>
-          <PrimaryButton type="submit" onClick={handleLogin}>
+          <CustomButton type="submit" onClick={handleLogin} className="rounded">
             Login
-          </PrimaryButton>
+          </CustomButton>
         </ButtonContainer>
       </FormInnerContainer>
     </form>

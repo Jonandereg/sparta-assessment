@@ -5,9 +5,9 @@ import {
   removeTask,
   updateTask,
 } from "../store/slices/taskSlice";
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { styled } from "@mui/system";
-import { PrimaryButton, SecondaryButton } from "./buttons";
+import { CustomButton } from "./buttons";
 
 type TaskItemProps = {
   id: string;
@@ -39,25 +39,27 @@ const TaskItem: React.FC<TaskItemProps> = ({ id, title, isDone }) => {
         {isEditing ? (
           <TextField
             variant="standard"
-            fullWidth
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             onBlur={handleUpdate}
           />
         ) : (
-          <span style={{ textDecoration: isDone ? "line-through" : "none" }}>
-            {title}
-          </span>
+          <ItemTitle className={isDone ? "done" : ""}>{title}</ItemTitle>
         )}
       </TextContainer>
       <ButtonsContainer>
-        <PrimaryButton onClick={handleToggleDone}>
+        <CustomButton onClick={handleToggleDone} size="small">
           {isDone ? "Undo" : "Done"}
-        </PrimaryButton>
-        <PrimaryButton onClick={() => setIsEditing((prev) => !prev)}>
-          {isEditing ? "Cancel" : "Edit"}
-        </PrimaryButton>
-        <SecondaryButton onClick={handleRemove}>Remove</SecondaryButton>
+        </CustomButton>
+        <CustomButton
+          onClick={() => setIsEditing((prev) => !prev)}
+          size="small"
+        >
+          {isEditing ? "Save" : "Edit"}
+        </CustomButton>
+        <CustomButton className="secondary" onClick={handleRemove} size="small">
+          Remove
+        </CustomButton>
       </ButtonsContainer>
     </ItemContainer>
   );
@@ -68,7 +70,7 @@ const ItemContainer = styled(Box)`
   align-items: center;
   width: 100%;
   padding: 0.5rem 1rem;
-  max-width: 800px;
+  min-width: 500px;
 `;
 
 const ButtonsContainer = styled(Box)`
@@ -85,6 +87,12 @@ const TextContainer = styled(Box)`
   padding: 0.5rem 1rem;
   margin-right: 1rem;
   display: flex;
+`;
+
+const ItemTitle = styled(Typography)`
+  &.done {
+    text-decoration: line-through;
+  }
 `;
 
 export default TaskItem;

@@ -3,8 +3,8 @@ import { RootState } from "../store";
 import { useState } from "react";
 import { addTask } from "../store/slices/taskSlice";
 import TaskItem from "./taskItem";
-import { Box, TextField, styled } from "@mui/material";
-import { PrimaryButton } from "./buttons";
+import { Box, TextField, Typography, styled } from "@mui/material";
+import { CustomButton } from "./buttons";
 
 export const TasksList = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,9 @@ export const TasksList = () => {
 
   return (
     <TaskListContainer>
-      <h1>Task List</h1>
+      <Typography variant="h4" align="center">
+        Task List
+      </Typography>
       <InputContainer>
         <TextField
           variant="standard"
@@ -33,7 +35,7 @@ export const TasksList = () => {
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <PrimaryButton onClick={handleAddTask}>Add Task</PrimaryButton>
+        <CustomButton onClick={handleAddTask}>Add Task</CustomButton>
       </InputContainer>
       <ul>
         {tasks.map((task) => (
@@ -56,5 +58,10 @@ const TaskListContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   grid-gap: 1rem;
+  padding: 1rem;
   margin-bottom: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 0 #ccc;
+  align-items: center;
 `;
