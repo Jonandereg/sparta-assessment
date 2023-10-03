@@ -24,8 +24,11 @@ const AuthProvider = ({ children }) => {
         sessionStorage.removeItem("tasks");
         dispatch(logout());
       }
+    } else {
+      dispatch(logout());
     }
   }, []);
+
   return <>{children}</>;
 };
 
