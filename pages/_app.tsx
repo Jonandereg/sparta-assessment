@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import store from "../store";
 import AuthProvider from "../components/AuthProvider";
 import Layout from "../components/Layout";
+import "../styles/global.scss";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
