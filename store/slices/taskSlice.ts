@@ -8,7 +8,7 @@ type Task = {
 
 type UpdateTaskPayload = Pick<Task, "id" | "title">;
 
-type TaskState = {
+export type TaskState = {
   tasks: Task[];
 };
 
