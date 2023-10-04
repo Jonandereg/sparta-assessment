@@ -19,7 +19,6 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
     dispatch(logout());
   };
   return (
