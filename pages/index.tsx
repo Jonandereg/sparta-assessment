@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { TasksList } from "../components/taskList";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../shared/types";
 import { useEffect } from "react";
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
