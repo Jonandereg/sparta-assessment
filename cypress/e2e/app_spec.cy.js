@@ -13,7 +13,7 @@ describe("Login", () => {
 });
 
 describe("Logout", () => {
-  beforeEach(() => {
+  before(() => {
     cy.visit("http://localhost:3000/login");
     cy.get("[data-testid=username]").within(() => {
       cy.get("input").type("username");
@@ -23,6 +23,7 @@ describe("Logout", () => {
     });
     cy.get("button[type=submit]").click();
   });
+
   it("should log out the user", () => {
     cy.visit("http://localhost:3000/login");
     cy.get("[data-testid=logOut]").click();

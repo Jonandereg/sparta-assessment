@@ -30,12 +30,15 @@ export const TasksList = () => {
       </Typography>
       <InputContainer>
         <TextField
+          data-testid="newTask"
           variant="standard"
           placeholder="Add a new task"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
         />
-        <CustomButton onClick={handleAddTask}>Add Task</CustomButton>
+        <CustomButton data-testid="addTask" onClick={handleAddTask}>
+          Add Task
+        </CustomButton>
       </InputContainer>
       <ul>
         {tasks.map((task) => (

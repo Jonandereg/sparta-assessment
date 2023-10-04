@@ -30,7 +30,6 @@ const TaskItem: React.FC<TaskItemProps> = ({ id, title, isDone }) => {
 
   const handleUpdate = () => {
     dispatch(updateTask({ id, title: newTitle }));
-    setIsEditing(false);
   };
 
   return (
@@ -38,26 +37,43 @@ const TaskItem: React.FC<TaskItemProps> = ({ id, title, isDone }) => {
       <TextContainer>
         {isEditing ? (
           <TextField
+            data-testid="editTitle"
             variant="standard"
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             onBlur={handleUpdate}
           />
         ) : (
-          <ItemTitle className={isDone ? "done" : ""}>{title}</ItemTitle>
+          <ItemTitle
+            data-testid="taskItemTitle"
+            className={isDone ? "done" : ""}
+          >
+            {title}
+          </ItemTitle>
         )}
       </TextContainer>
       <ButtonsContainer>
-        <CustomButton onClick={handleToggleDone} size="small">
+        <CustomButton
+          data-testid="toggleDone"
+          onClick={handleToggleDone}
+          size="small"
+        >
           {isDone ? "Undo" : "Done"}
         </CustomButton>
         <CustomButton
+          data-testid="editTask"
           onClick={() => setIsEditing((prev) => !prev)}
           size="small"
+          className={isEditing ? "secondary" : ""}
         >
           {isEditing ? "Save" : "Edit"}
         </CustomButton>
-        <CustomButton className="secondary" onClick={handleRemove} size="small">
+        <CustomButton
+          data-testid="removeTask"
+          className="secondary"
+          onClick={handleRemove}
+          size="small"
+        >
           Remove
         </CustomButton>
       </ButtonsContainer>
