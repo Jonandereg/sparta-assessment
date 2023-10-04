@@ -1,47 +1,98 @@
-# TypeScript Next.js example
+### Sparta Front-end assessment
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+## About
 
-## Deploy your own
+This project is a coding assessment for a Frontend Developer position. It's a simple To-Do List application with features like adding, updating, and deleting tasks. Users can also mark tasks as done.
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+- User Authentication
+- Add/Update/Delete Tasks
+- Mark Tasks as Done
+- Responsive Design
 
-## How to use it?
+## Tech Stack
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- Next.js
+- TypeScript
+- Redux Toolkit
+- Material-UI
+- SASS
+- Jest
+- Cypress
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-```
+## Getting Started
 
-```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
+### Prerequisites
 
-```bash
-pnpm create next-app --example with-typescript with-typescript-app
-```
+- Node.js >= 14.x
+- npm >= 6.x
+- Yarn (Optional)
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Installation
 
-## Notes
+Clone the repository and install the dependencies:
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
+`git clone https://github.com/Jonandereg/sparta-assessment.git`
+`cd to the project folder`
+`npm install`
 
-```
-npm install --save-dev typescript
-```
+## Running Locally
 
-To enable TypeScript's features, we install the type declarations for React and Node.
+### Starting the Development Server
 
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
+Run the following command to start the development server:
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+`npm run dev`
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+### Running Tests
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+#### Unit Tests
+
+To run Jest tests, use:
+
+`npm run test`
+
+#### End-to-End Tests
+
+First, make sure you have the development server running. In a new terminal, run:
+
+`npx cypress open`
+
+Follow the on-screen instructions to run the Cypress tests.
+
+## Code Structure
+
+### Project Layout
+
+- \`components/\`: All React components
+- \`pages/\`: Next.js pages
+- \`store/\`: Redux store and slices
+- \`styles/\`: SASS stylesheets
+- \`tests/\`: Jest and Cypress tests
+
+### Redux Store
+
+- \`authSlice.ts\`: Manages authentication state
+- \`taskSlice.ts\`: Manages task-related state
+
+## Notes for Reviewer
+
+### Time Allocation
+
+The development of this project was conducted in approximately 5-6 hours, fragmented across multiple sessions to accommodate my existing professional commitments.
+
+### Technical Challenges
+
+My primary experience in styling web applications over the last three years has been with CSS-in-JS solutions. Given the time constraints of this assessment and my expertise with these libraries, I opted to rely predominantly on CSS-in-JS for styling—accounting for approximately 95% of the project's styles.
+
+### Areas for Future Enhancement
+
+With additional time, several areas could be refined for a more robust application:
+
+- **Styling Refinement**: A more polished and cohesive design language could be implemented.
+- **Responsive Design**: Further work could ensure a seamless user experience across various screen sizes.
+- **Accessibility**: The addition of key accessibility features would make the application more inclusive.
+- **SASS Utilization**: The use of SASS could be expanded for a more optimized styling architecture.
+- **Testing**: Additional tests could be added to ensure the application is robust and reliable.
+- **CI/CD**: The addition of a CI/CD pipeline would ensure the application is always in a deployable state.
