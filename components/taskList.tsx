@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store";
 import { useState } from "react";
 import { addTask } from "../store/slices/taskSlice";
 import TaskItem from "./taskItem";
 import { Box, TextField, Typography, styled } from "@mui/material";
 import { CustomButton } from "./buttons";
+import { RootState } from "../shared/types";
 
 export const TasksList = () => {
   const dispatch = useDispatch();

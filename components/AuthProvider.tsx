@@ -20,8 +20,6 @@ const AuthProvider = ({ children }) => {
           dispatch(initializeTasks(JSON.parse(storedTasks)));
         }
       } else {
-        sessionStorage.removeItem("token");
-        sessionStorage.removeItem("tasks");
         dispatch(logout());
       }
     } else {

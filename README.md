@@ -10,6 +10,11 @@ This project is a coding assessment for a Frontend Developer position. It's a si
 - Add/Update/Delete Tasks
 - Mark Tasks as Done
 - Responsive Design
+- Deployed to Vercel
+
+## Deployed Application
+
+[https://sparta-assessment.vercel.app/](https://sparta-assessment.vercel.app/)
 
 ## Tech Stack
 
@@ -33,11 +38,9 @@ This project is a coding assessment for a Frontend Developer position. It's a si
 
 Clone the repository and install the dependencies:
 
-
 `git clone https://github.com/Jonandereg/sparta-assessment.git`
 `cd to the project folder`
 `npm install`
-
 
 ## Running Locally
 
@@ -45,9 +48,7 @@ Clone the repository and install the dependencies:
 
 Run the following command to start the development server:
 
-
 `npm run dev`
-
 
 ### Running Tests
 
@@ -98,3 +99,5 @@ With additional time, several areas could be refined for a more robust applicati
 - **Responsive Design**: Further work could ensure a seamless user experience across various screen sizes.
 - **Accessibility**: The addition of key accessibility features would make the application more inclusive.
 - **SASS Utilization**: The use of SASS could be expanded for a more optimized styling architecture.
+- **Testing**: Additional tests could be added to ensure the application is robust and reliable.
+- **CI/CD**: The addition of a CI/CD pipeline would ensure the application is always in a deployable state.

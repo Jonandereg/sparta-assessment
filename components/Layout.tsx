@@ -3,7 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/slices/authSlice";
-import { RootState } from "../store";
+import { RootState } from "../shared/types";
 import { Box, Typography, styled } from "@mui/material";
 import { CustomButton } from "./buttons";
 
@@ -19,7 +19,6 @@ const Layout = ({ children, title = "Sparta assessment" }: Props) => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
     dispatch(logout());
   };
   return (
