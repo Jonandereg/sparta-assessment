@@ -37,6 +37,7 @@ Clone the repository and install the dependencies:
 `cd to the project folder`
 `npm install`
 
+
 ## Running Locally
 
 ### Starting the Development Server
@@ -96,3 +97,4 @@ With additional time, several areas could be refined for a more robust applicati
 - **SASS Utilization**: The use of SASS could be expanded for a more optimized styling architecture.
 - **Testing**: Additional tests could be added to ensure the application is robust and reliable.
 - **CI/CD**: The addition of a CI/CD pipeline would ensure the application is always in a deployable state.
+
